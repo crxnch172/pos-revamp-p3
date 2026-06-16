@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="style.css" />
+<title>POS System</title>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h3>POS</h3>
+  <button onclick="show('dashboard')">Dashboard</button>
+  <button onclick="show('products')">Products</button>
+  <button onclick="show('orders')">Recent Orders</button>
+</div>
+
+<div class="main">
+
+<div class="topbar">
+  <h3>Welcome, Corpuz</h3>
+  <span id="date"></span>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="page active">
+  <h2>Dashboard</h2>
+
+  <div class="cards">
+    <div class="card">Total Sales Today: ₱<span id="sales">0</span></div>
+    <div class="card">Orders Today: <span id="orderCount">0</span></div>
+    <div class="card">Items Sold: <span id="itemCount">0</span></div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="products" class="page">
+  <h2>Products</h2>
+
+  <div class="products-layout">
+
+    <div class="product-grid" id="grid"></div>
+
+    <div class="cart-panel">
+      <h3>Current Order</h3>
+      <div id="cart"></div>
+        <button class="delete-all" onclick="clearCart()">
+  Delete All
+</button>
+      <div class="total">Total: ₱<span id="total">0</span></div>
+
+      <button class="checkout-btn" onclick="checkout()">
+        Checkout
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- RECENT ORDERS -->
+<div id="orders" class="page">
+  <h2>Recent Orders</h2>
+  <div id="orderList"></div>
+</div>
+
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Payment Method</h3>
+    <button class="cash" onclick="selectCash()">Cash</button>
+    <button class="online" onclick="selectOnline()">Online</button>
+    <button class="close" onclick="closeModal()">Close</button>
+
+    <div id="cashSection" style="margin-top:10px; display:none;">
+  <hr style="margin:10px 0; border:1px solid #1f2937">
+
+  <label>Cash Given:</label>
+  <input id="cashInput" type="number"
+    style="width:100%; padding:8px; margin-top:5px; border-radius:8px; border:none;">
+
+  <p style="margin-top:10px;">
+    Change: ₱<span id="change">0</span>
+  </p>
+
+  <button onclick="confirmCashPay()"
+    style="background:#22c55e; color:white;">
+    Confirm Cash Payment
+  </button>
+</div>
+
+<hr style="margin:10px 0; border:1px solid #1f2937">
+
+<h4>Customer Details</h4>
+
+<input id="custName" placeholder="Customer Name"
+style="width:100%; padding:8px; margin-top:5px; border-radius:8px; border:none;">
+
+<input id="custAddress" placeholder="Customer Address"
+style="width:100%; padding:8px; margin-top:5px; border-radius:8px; border:none; margin-top:8px;">
+
+  </div>
+</div>
+
+<div class="modal" id="receiptModal">
+  <div class="modal-content" id="receipt">
+    <h3>Receipt</h3>
+
+    <div id="receiptBody"></div>
+
+    <hr style="margin:10px 0; border:1px solid #1f2937">
+
+    <p>Total: ₱<span id="receiptTotal"></span></p>
+    <p>Payment: <span id="receiptMethod"></span></p>
+    <p>Date: <span id="receiptDate"></span></p>
+
+    <button onclick="downloadReceipt()" style="background:#22c55e; color:white;">
+      Download Receipt
+    </button>
+
+    <button onclick="closeReceipt()" style="background:#ef4444; color:white;">
+      Close
+    </button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+</body>
+</html>

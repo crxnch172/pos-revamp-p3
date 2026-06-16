@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background: #0b0f1a;
+  color: white;
+  overflow: hidden;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: #111827;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #1f2937;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background: #3b82f6;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.topbar {
+  padding: 15px;
+  background: #0f172a;
+  border-bottom: 1px solid #1f2937;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* PAGES */
+.page {
+  display: none;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.active {
+  display: block;
+}
+
+/* DASHBOARD */
+.cards {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  flex: 1;
+  background: #111827;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* RECEIPT */
+#receiptBody {
+  text-align: left;
+  font-size: 14px;
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#receiptModal .modal-content {
+  width: 320px;
+}
+
+/* PRODUCTS LAYOUT */
+.products-layout {
+  display: flex;
+  gap: 20px;
+  height: 40vh;
+}
+
+/* PRODUCT GRID */
+.product-grid {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.product {
+  background: #111827;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+
+button.add {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
+
+/* CART PANEL (RIGHT SIDE) */
+#cart {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.cart-panel {
+  flex: 1;
+  background: #0f172a;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background: #111827;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.qty-btn {
+  background: #3b82f6;
+  border: none;
+  color: white;
+  padding: 3px 8px;
+  margin: 0 3px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.total {
+  margin-top: auto;
+  font-size: 18px;
+  border-top: 1px solid #1f2937;
+  padding-top: 10px;
+}
+
+.total {
+  margin-top: auto;
+  font-size: 18px;
+  border-top: 1px solid #1f2937;
+  padding-top: 10px;
+}
+
+.checkout-btn {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  background: #22c55e;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.delete-all {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-all:hover {
+  background: #dc2626;
+}
+
+/* RECENT ORDERS */
+.order-group {
+  background: #111827;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #111827;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.modal button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: space-around;
+  }
+
+  .main {
+    height: 100%;
+  }
+
+  .products-layout {
+    flex-direction: column;
+  }
+
+  .cart-panel {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+}
+
+.cash { background: #3b82f6; color: white; }
+.online { background: #a855f7; color: white; }
+.close { background: #ef4444; color: white; }
